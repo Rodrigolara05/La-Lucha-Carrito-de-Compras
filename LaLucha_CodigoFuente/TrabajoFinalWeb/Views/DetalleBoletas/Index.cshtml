@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TrabajoFinalWeb.Models.DetalleBoleta>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Administrador.cshtml";
+}
+<body class="subpage">
+
+    <h2>Todas las Boletas</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModoDePago.Descripcion)
+            </th>
+            <th>
+                Nombre del Cliente
+            </th>
+            <th>Opciones</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModoDePago.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pedido.Detalle)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver Detalle", "Details", new { id = item.ID }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

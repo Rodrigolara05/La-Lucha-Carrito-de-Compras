@@ -1,0 +1,151 @@
+﻿
+@model IEnumerable<TrabajoFinalWeb.Models.PP>
+@{
+    List<TrabajoFinalWeb.Models.Producto> lista = ViewBag.Productos;
+    int ncontador = ViewBag.Contador;
+    string nombre = ViewBag.Nombre;
+}
+
+
+<body class="subpage">
+    
+    <div class="col-xs-12 col-sm-9">
+        <h2>Bienvenido @nombre ! </h2>
+        @* Hamburguesas*@
+    <a name="tabla1"></a name="tabla1">
+        <table class="table" >
+            <tr>
+                <th colspan="3" align="center">
+                    Hamburguesas
+                </th>
+            </tr>
+            @for (int i = 0; i < lista.Count(); i++)
+            {
+                <tr>
+                    @if (lista[i].IdTipoProducto == 1)
+                {
+                        <td>
+                            @using (Html.BeginForm("Orden", "Productos_Pedidos", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" id="id" name="id" value=@lista[i].ID>
+                                <input type="hidden" id="ncontador" name="ncontador" value=@ncontador>
+                                <h5>Nombre:      @lista[i].Nombre</h5>
+                                <p> Descripcion: @lista[i].Descripcion </p>
+                                <p> Precio:      @lista[i].Precio </p>
+                            <input type="submit" value="Agregar" class="btn btn-default" />
+                                                      
+                            }
+                        </td>
+                        <td>
+                            <img src="~/images/@lista[i].imagen" alt="" width="213" height="194" />
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+        <a name="tabla2"></a>
+        @* Complementos *@
+        <table class="table">
+            <tr>
+                <th colspan="3" align="center">
+                    Complementos
+                </th>
+            </tr>
+            @for (int i = 0; i < lista.Count(); i++)
+            {
+                <tr>
+                    @if (lista[i].IdTipoProducto == 2)
+                    {
+                        <td>
+                            @using (Html.BeginForm("Orden", "Productos_Pedidos", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" id="id" name="id" value=@lista[i].ID>
+                                <input type="hidden" id="ncontador" name="ncontador" value=@ncontador>
+                                <h5>Nombre:      @lista[i].Nombre</h5>
+                                <p> Descripcion: @lista[i].Descripcion </p>
+                                <p> Precio:      @lista[i].Precio </p>
+                                <input type="submit" value="Agregar" class="btn btn-default" />
+
+                            }
+                        </td>
+                        <td>
+                            <img src="~/images/@lista[i].imagen" alt="" width="213" height="194" />
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+           
+     <a name="tabla3"> </a>
+        @* Combo *@
+        <table class="table">
+            <tr>
+                <th colspan="3" align="center">
+                    Combos
+                </th>
+            </tr>
+            @for (int i = 0; i < lista.Count(); i++)
+            {
+                <tr>
+                    @if (lista[i].IdTipoProducto == 3)
+                    {
+                        <td>
+                            @using (Html.BeginForm("Orden", "Productos_Pedidos", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" id="id" name="id" value=@lista[i].ID>
+                                <input type="hidden" id="ncontador" name="ncontador" value=@ncontador>
+                                <h5>Nombre:      @lista[i].Nombre</h5>
+                                <p> Descripcion: @lista[i].Descripcion </p>
+                                <p> Precio:      @lista[i].Precio </p>
+                                <input type="submit" value="Agregar" class="btn btn-default" />
+
+                            }
+                        </td>
+                        <td>
+                            <img src="~/images/@lista[i].imagen" alt="" width="213" height="194" />
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div><!--/.col-xs-12.col-sm-9-->
+
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Producto.Nombre)
+                </th>
+                <th>
+                    Opciones
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producto.Nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", "PPs", new { id = item.ID }, new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </table>
+        @using (Html.BeginForm("Pedido_Boleta", "DetalleBoletas", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Siguiente" class="btn btn-default" />
+        }
+    </div><!--/.sidebar-offcanvas-->
+
+
+</body>
+

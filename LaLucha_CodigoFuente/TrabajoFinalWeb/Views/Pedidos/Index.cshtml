@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TrabajoFinalWeb.Models.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Administrador.cshtml";
+}
+
+<body class="subpage">
+    <h2>Boletas</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Atendido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado.Contraseña)
+            </th>
+            <th>Opciones</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Atendido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Detalle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empleado.Contraseña)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

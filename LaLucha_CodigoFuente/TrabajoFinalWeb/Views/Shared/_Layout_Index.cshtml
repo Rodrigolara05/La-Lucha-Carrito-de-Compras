@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/assets/js/jquery.min.js")
+    @Scripts.Render("~/assets/js/jquery.scrollex.min.js")
+    @Scripts.Render("~/assets/js/skel.min.js")
+    @Scripts.Render("~/assets/js/util.js")
+    @Scripts.Render("~/assets/js/main.js")
+    @RenderSection("scripts", required: false)
+    <title>Hielo by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="~/">La Lucha <span> Restaurante </span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a>@Html.ActionLink("Inicio", "Index", "Home")</a></li>
+            <li><a>@Html.ActionLink("Registrarse", "Create", "Empleados")</a></li>
+            <li><a>@Html.ActionLink("Ingresar", "Login", "Empleados")</a></li>
+            <li><a>@Html.ActionLink("Realizar un Pedido", "Orden", "Productos_Pedidos")</a></li>
+            <li><a>@Html.ActionLink("Sobre Nosotros", "About", "Home")</a></li>
+            <li><a>@Html.ActionLink("Contactenos", "Contact", "Home")</a></li>
+            <li><a>@Html.ActionLink("Cerrar Sesion", "LogOff", "Empleados")</a></li>
+        </ul>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Sangucheria La Lucha</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿@model TrabajoFinalWeb.Models.Producto
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_Administrador.cshtml";
+}
+
+<body class="subpage">
+    <h2>Eliminar</h2>
+
+    <h3>Esta seguro de eliminar el actual registro?</h3>
+    <div>
+        <h4>Producto</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.imagen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.imagen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoProducto.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoProducto.Descripcion)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
