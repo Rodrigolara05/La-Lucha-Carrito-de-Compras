@@ -15,8 +15,10 @@ Usamos [Git](https://git-scm.com/) para el versionado. Su uso es solo para fines
 ## Autores ✒️
 
 - Rodrigo Max Lara Camarena
+- Renato Estefano Zegarra Villa
 
 * **Rodrigo Max Lara Camarena** -  [Rodrigo Lara](https://www.linkedin.com/in/rodrigolara05)
+* **Renato Estefano Zegarra Villa** -  [Renato Zegarra](#)
 
 ### Pre-requisitos 📋
 
